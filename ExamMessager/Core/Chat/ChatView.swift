@@ -26,10 +26,15 @@ struct ChatView: View {
             }
             // messages
             
-            //message input
+            ForEach(0 ... 15, id: \.self) { message in
+                ChatMessageView(isFromCurrentUser: Bool.random())
+            }
             
             
         }
+        //message input view
+        
+        
         Spacer()
         ZStack(alignment: .trailing) {
             TextField("Message..." , text: $messageText, axis: .vertical)

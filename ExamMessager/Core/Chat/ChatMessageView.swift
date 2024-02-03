@@ -8,11 +8,38 @@
 import SwiftUI
 
 struct ChatMessageView: View {
+    let isFromCurrentUser: Bool
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            if isFromCurrentUser {
+                Spacer()
+                
+                Text("Hello ")
+                    .font(.subheadline)
+                    .padding()
+                    .background(Color(.systemBlue))
+                    .foregroundColor(.white)
+                    .clipShape(ChatBubble(isFromCurrentUser: isFromCurrentUser))
+                    .frame(maxWidth: UIScreen.main.bounds.width / 1.5, alignment: .trailing)
+            } else {
+                HStack(alignment: .bottom, spacing: 8) {
+                    CircularProfileImageView(user: User.MOCK_USER, size: .xxSmall)
+                    Text("Hi how are you ? ")
+                        .font(.subheadline)
+                        .padding()
+                        .background(Color(.systemGray5))
+                        .foregroundColor(.black)
+                        .clipShape(ChatBubble(isFromCurrentUser: isFromCurrentUser))
+                        .frame(maxWidth: UIScreen.main.bounds.width / 1.75, alignment: .leading)
+
+                    Spacer()
+                }
+            }
+        }
+        .padding(.horizontal, 8)
     }
 }
 
 #Preview {
-    ChatMessageView()
+    ChatMessageView(isFromCurrentUser: false)
 }
