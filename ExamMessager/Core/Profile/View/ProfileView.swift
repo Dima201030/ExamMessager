@@ -6,51 +6,64 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ProfileView: View {
+    @StateObject var viewMpdel = ProfileViewModel()
+    let user: User
     var body: some View {
         VStack {
             // header
             VStack {
-                Image(systemName: "person.circle.fill")
-                    .resizable()
-                    .frame(width: 80, height: 80)
-                    .foregroundColor(Color(.systemGray4))
+                PhotosPicker(selection: $viewMpdel.selectItme) {
+                    if let profileImage = viewMpdel.profileImage {
+                        profileImage
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 120, height: 120)
+                            .clipShape(Circle())
+                    } else {
+                        CircularProfileImageView(user: user, size: .max)
+                    }
+                }
                 
-                Text("Dima")
-                    .font(.title2)
-                    .fontWeight(.semibold)
             }
-            // list
-            List {
-                Section {
-                    ForEach(0 ... 5, id: \.self) { option in
-                        HStack {
-                            Image(systemName: "bell.circle.fill")
-                                .resizable()
-                                .frame(width: 24, height: 24)
-                                .foregroundColor(Color(.systemPurple))
-                            Text("Notifycations")
-                                .font(.subheadline)
-                        }
+            
+            Text(user.fullname)
+                .font(.title2)
+                .fontWeight(.semibold)
+        }
+        
+        // list
+        List {
+            Section {
+                ForEach(SettingsOptionsViewModel.allCases, id: \.self) { option in
+                    HStack {
+                        Image(systemName: option.imageName)
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(option.imageBackgroundColor)
+                        Text(option.title)
+                            .font(.subheadline)
                     }
                 }
-                Section {
-                    
-                    
-                    Button("Log Out") {
-                        
-                    }
-                    Button("Delete Account") {
-                        
-                    }
-                }
-                .foregroundColor(.red)
             }
+            Section {
+                
+                
+                Button("Log Out") {
+                    
+                }
+                Button("Delete Account") {
+                    
+                }
+            }
+            .foregroundColor(.red)
         }
     }
 }
 
+
 #Preview {
-    ProfileView()
+    ProfileView( user: User.MOCK_USER)
 }

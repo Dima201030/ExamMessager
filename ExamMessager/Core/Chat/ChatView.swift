@@ -8,8 +8,46 @@
 import SwiftUI
 
 struct ChatView: View {
+    @State private var messageText = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            // header
+            VStack {
+                CircularProfileImageView(user: User.MOCK_USER, size: .xLarge)
+                
+                VStack(spacing: 4) {
+                    Text("Dima")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                    Text("Messager")
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                }
+            }
+            // messages
+            
+            //message input
+            
+            
+        }
+        Spacer()
+        ZStack(alignment: .trailing) {
+            TextField("Message..." , text: $messageText, axis: .vertical)
+                .padding(12)
+                .padding(.trailing, 48)
+                .background(Color(.systemGroupedBackground))
+                .clipShape(Capsule())
+                .font(.subheadline)
+            Button {
+                print("Send message")
+            } label: {
+                Text("Send")
+                    .font(.subheadline)
+            }
+            .padding(.horizontal)
+
+        }
+        .padding()
     }
 }
 
