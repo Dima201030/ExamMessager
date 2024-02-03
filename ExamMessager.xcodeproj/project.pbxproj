@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		818E57D22B6E7D1B000A133E /* NewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E57D12B6E7D1B000A133E /* NewMessageView.swift */; };
+		818E57D42B6E861E000A133E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E57D32B6E861E000A133E /* ProfileView.swift */; };
+		818E57D92B6E880D000A133E /* SettingsOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E57D82B6E880C000A133E /* SettingsOptionsView.swift */; };
 		819A03222B6D88160019E9DC /* ExamMessagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A03212B6D88160019E9DC /* ExamMessagerApp.swift */; };
 		819A03242B6D88160019E9DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A03232B6D88160019E9DC /* ContentView.swift */; };
 		819A03262B6D88180019E9DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 819A03252B6D88180019E9DC /* Assets.xcassets */; };
@@ -46,6 +49,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		818E57D12B6E7D1B000A133E /* NewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageView.swift; sourceTree = "<group>"; };
+		818E57D32B6E861E000A133E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		818E57D82B6E880C000A133E /* SettingsOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptionsView.swift; sourceTree = "<group>"; };
 		819A031E2B6D88160019E9DC /* ExamMessager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamMessager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		819A03212B6D88160019E9DC /* ExamMessagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamMessagerApp.swift; sourceTree = "<group>"; };
 		819A03232B6D88160019E9DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +102,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		818E57D02B6E7CEB000A133E /* New Message */ = {
+			isa = PBXGroup;
+			children = (
+				818E57D12B6E7D1B000A133E /* NewMessageView.swift */,
+			);
+			path = "New Message";
+			sourceTree = "<group>";
+		};
+		818E57D52B6E862A000A133E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				818E57D72B6E8647000A133E /* View */,
+				818E57D62B6E8640000A133E /* ViewModel */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		818E57D62B6E8640000A133E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				818E57D82B6E880C000A133E /* SettingsOptionsView.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		818E57D72B6E8647000A133E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				818E57D32B6E861E000A133E /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		819A03152B6D88160019E9DC = {
 			isa = PBXGroup;
 			children = (
@@ -159,8 +198,10 @@
 			isa = PBXGroup;
 			children = (
 				819A033E2B6E43A50019E9DC /* ActiveNow */,
-				819A033B2B6E421D0019E9DC /* Inbox */,
 				819A03342B6D88DA0019E9DC /* Authentication */,
+				819A033B2B6E421D0019E9DC /* Inbox */,
+				818E57D02B6E7CEB000A133E /* New Message */,
+				818E57D52B6E862A000A133E /* Profile */,
 				819A03352B6D88EC0019E9DC /* Root */,
 			);
 			path = Core;
@@ -319,11 +360,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				819A03422B6E61890019E9DC /* InboxRowView.swift in Sources */,
+				818E57D22B6E7D1B000A133E /* NewMessageView.swift in Sources */,
 				819A03382B6D89210019E9DC /* LoginView.swift in Sources */,
 				819A03242B6D88160019E9DC /* ContentView.swift in Sources */,
 				819A033D2B6E423E0019E9DC /* InboxView.swift in Sources */,
 				819A03402B6E43DF0019E9DC /* ActiveNowView.swift in Sources */,
 				819A03222B6D88160019E9DC /* ExamMessagerApp.swift in Sources */,
+				818E57D42B6E861E000A133E /* ProfileView.swift in Sources */,
+				818E57D92B6E880D000A133E /* SettingsOptionsView.swift in Sources */,
 				819A033A2B6D95270019E9DC /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

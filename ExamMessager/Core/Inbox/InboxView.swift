@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct InboxView: View {
+    @State private var showNewMessageView = false
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -15,12 +17,17 @@ struct InboxView: View {
                 
                 List {
                     ForEach( 0 ... 10, id: \.self ) { message in
-                            InboxRowView()
+                        InboxRowView()
                     }
                     
                 }
                 .listStyle(PlainListStyle())
                 .frame(height: UIScreen.main.bounds.height - 120)
+            }
+            .fullScreenCover(isPresented: $showNewMessageView) {
+                
+                NewMessageView()
+                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -34,14 +41,14 @@ struct InboxView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        print("Show new massseg view")
+                        showNewMessageView.toggle()
                     } label: {
                         Image(systemName: "square.and.pencil.circle.fill")
                             .resizable()
                             .frame(width: 32, height: 32)
                             .foregroundStyle(.black, Color(.systemGray5))
                     }
-
+                    
                 }
             }
         }
