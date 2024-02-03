@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct LoginVIew: View {
+struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     var body: some View {
         NavigationStack {
             VStack {
+                Spacer()
+                
                 // logo Image
                 Image("IconMessagerNot")
                     .resizable()
@@ -22,8 +24,18 @@ struct LoginVIew: View {
                 // text fields
                 VStack {
                     TextField("Enter your email", text: $email)
+                        .font(.subheadline)
+                        .padding(12)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(10)
+                        .padding(.horizontal, 24)
                     
                     SecureField("Enter your password", text: $password)
+                        .font(.subheadline)
+                        .padding(12)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(10)
+                        .padding(.horizontal, 24)
                 }
                 
                 // forgot password
@@ -40,9 +52,15 @@ struct LoginVIew: View {
                 // login button
                 Button(action: { print("Handle login ")} ) {
                     Text("Login")
-                        
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .frame(width: 360, height: 44)
+                        .background(Color(.systemBlue))
+                        .cornerRadius(10)
+                    
                 }
-                
+                .padding(.vertical)
                 // apple login
                 HStack {
                     Rectangle()
@@ -63,6 +81,7 @@ struct LoginVIew: View {
                         .font(.footnote)
                         .fontWeight(.semibold)
                         .foregroundColor(Color(.systemBlue))
+                        
                 }
                 .padding(.top, 8)
                 Spacer()
@@ -70,7 +89,8 @@ struct LoginVIew: View {
                 
                 Divider()
                 NavigationLink {
-                    Text("Sign up View")
+                    RegistrationView()
+                        .navigationBarBackButtonHidden()
                 } label: {
                     HStack (spacing: 3) {
                         Text("Don't have an account ?")
@@ -80,11 +100,12 @@ struct LoginVIew: View {
                     }
                     .font(.footnote)
                 }
+                .padding(.vertical)
             }
         }
     }
 }
 
 #Preview {
-    LoginVIew()
+    LoginView()
 }
